@@ -14,40 +14,18 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
   var setVar = req.body;
-  var data = {
-    ordered: [],
-    devoured: []
-  };
   burgers.insert(setVar);
-  burgers.all(function(result) {
-    for (var i = 0; i < result.length; i++) {
-      if (!result[i].devoured) {
-        data.ordered.push(result[i]);
-      } else {
-        data.devoured.push(result[i]);
-      }
-    }
-    res.render("index", data);
-  });
+  res.redirect("/");
 });
 
 router.put("/", function(req, res) {
   var update = req.body;
-  var data = {
-    ordered: [],
-    devoured: []
+  var set = {
+    devoured: true
   };
-  burgers.update(update.set, update.where);
-  burgers.all(function(result) {
-    for (var i = 0; i < result.length; i++) {
-      if (!result[i].devoured) {
-        data.ordered.push(result[i]);
-      } else {
-        data.devoured.push(result[i]);
-      }
-    }
-    res.render("index", data);
-  });
+
+  burgers.update(set, update);
+  res.redirect("/");
 });
 
 module.exports = router;

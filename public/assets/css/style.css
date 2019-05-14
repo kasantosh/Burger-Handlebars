@@ -1,7 +1,6 @@
 body {
   background-image: radial-gradient(rgb(255, 67, 67), rgb(253, 53, 53));
-  background-repeat: no-repeat;
-  height: 100vh;
+  height: auto;
 }
 
 img {
@@ -11,11 +10,22 @@ img {
 h1 {
   color: white;
   margin-top: -10;
+  font-family: "Permanent Marker", cursive;
 }
 
 .ordered h6 {
   background-color: white;
+  font-family: "Cuprum", sans-serif;
 }
 .devoured h6 {
   background-color: white;
+  font-family: "Cuprum", sans-serif;
+}
+
+button {
+  font-family: "Cuprum", sans-serif;
+}
+
+input {
+  font-family: "Cuprum", sans-serif;
 }
