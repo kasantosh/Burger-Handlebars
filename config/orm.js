@@ -1,33 +1,25 @@
 var connection = require("./connection");
 
 var orm = {
-  selectALL: function(column, table, callback) {
-    var queryString = "SELECT ?? FROM ??";
-    connection.query(queryString, [column, table], function(err, result) {
+  selectALL: function(table, callback) {
+    var queryString = "SELECT * FROM" + table + ";";
+    connection.query(queryString, table, function(err, result) {
       if (err) throw err;
       callback(result);
     });
   },
 
-  insertOne: function(column, value, callback) {
+  insertOne: function(column, value) {
     var queryString = "INSERT into ?? SET ?";
-    connection.query(queryString, [column, value], function(err, result) {
+    connection.query(queryString, [column, value], function(err) {
       if (err) throw err;
-
-      var result = "Inserted to database";
-
-      callback(result);
     });
   },
 
-  updateOne: function(table, set, where, callback) {
-    var queyrString = "UPDATE ?? SET ? WHERE ?";
-    connection.query(queryString, [table, set, where], function(err, result) {
+  updateOne: function(table, set, where) {
+    var queryString = "UPDATE ?? SET ? WHERE ?";
+    connection.query(queryString, [table, set, where], function(err) {
       if (err) throw err;
-
-      var result = "updated database";
-
-      callback(result);
     });
   }
 };
