@@ -18,7 +18,7 @@ $(document).ready(function() {
   });
 
   $(".devour").on("click", function() {
-    var id = $(".devour").attr("devour_id");
+    var id = $(this).attr("devour_id");
 
     var set = {
       id: id
