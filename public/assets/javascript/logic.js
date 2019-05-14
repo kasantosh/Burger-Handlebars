@@ -1,8 +1,4 @@
 $(document).ready(function() {
-  $.get("/", function(data) {
-    console.log(data);
-  });
-
   $("#burger-submit").on("click", function() {
     var text = $("#burger-text")
       .val()

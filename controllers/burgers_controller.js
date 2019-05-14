@@ -1,11 +1,15 @@
 var express = require("express");
-var burgers = require("../models/burger");
-var path = require("path");
-
 var router = express.Router();
+var burgers = require("../models/burger");
 
 router.get("/", function(req, res) {
-  res.render("../views/index.handlebars");
+  burgers.all(function(data) {
+    var hbsObject = {
+      burgers: data
+    };
+    console.log(hbsObject);
+    res.render("index", hbsObject);
+  });
 });
 
 router.post("/", function(req, res) {
